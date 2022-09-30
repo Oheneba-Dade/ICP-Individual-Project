@@ -79,7 +79,7 @@ public class TestRoute {
             // reading routes file and populating the routes hashmap
             String routeLine = routesReader.readLine();
             while (routeLine != null) {
-                String[] routeInfo = routeLine.split("(,)(?=(?:[^\"]|\"[^\"]*\")*$)");
+                String[] routeInfo = routeLine.split(",");
                 Route route =
                         new Route(
                                 routeInfo[0],
