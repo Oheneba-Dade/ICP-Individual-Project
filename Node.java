@@ -71,11 +71,13 @@ public class Node {
 		ArrayList<String> airlineCodes = new ArrayList<>();
 		ArrayList<Integer> stops = new ArrayList<>();
 		ArrayList<String> path = new ArrayList<>();
+		int totalNumberOfStops = 0;
 		Node tempNode = this;
 		while (tempNode != null) {
 			airportCodes.add(tempNode.getAirportCode());
 			airlineCodes.add(tempNode.getAirlineCode());
 			stops.add(tempNode.getStops());
+			totalNumberOfStops += tempNode.getStops();
 			tempNode = tempNode.parentNode;
 		}
 		Collections.reverse(airportCodes);
@@ -85,6 +87,9 @@ public class Node {
 			String statement = String.format("%d. %s from %s to %s %d stops",i+1,airlineCodes.get(i+1),airportCodes.get(i),airportCodes.get(i+1),stops.get(i));
 			path.add(statement);
 		}
+
+		//add the total number of stops to list
+		path.add(String.valueOf(totalNumberOfStops));
 		return path;
 	}
 

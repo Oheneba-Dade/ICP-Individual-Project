@@ -102,6 +102,8 @@ public class TestRoute {
             routesReader.close();
 
             // Testing out the application
+
+            // use Stringbuilder to enable obtain filename to use for output filename
             StringBuilder inputFileName = new StringBuilder("sandane-bangkok.txt");
             BufferedReader inputFileReader =
                     new BufferedReader(new FileReader(String.valueOf(inputFileName)));
@@ -110,9 +112,9 @@ public class TestRoute {
                             inputFileName.delete(
                                     inputFileName.length() - 4, inputFileName.length()));
             outputFileName.append(".txt");
+
             File outputFile = new File(inputFileName + "_output.txt");
             PrintWriter pw = new PrintWriter(outputFile);
-
             String source = inputFileReader.readLine();
             String destination = inputFileReader.readLine();
 
@@ -121,12 +123,15 @@ public class TestRoute {
             int numberOfFlights = 0;
             if (path == null) {
                 pw.write("Cannot find a series of flights to this location");
+
             } else {
-                for (String pathItem : path) {
-                    pw.println(pathItem);
+                for (int i = 0; i < path.size() - 1; i++) {
+                    pw.println(path.get(i));
                     numberOfFlights++;
                 }
                 pw.println("Total flights: " + numberOfFlights);
+                String totalNumberOfStops = path.get(path.size() - 1);
+                pw.println("Total additional stops: " + totalNumberOfStops);
                 System.out.println("Flights found. File created.");
             }
             pw.close();
