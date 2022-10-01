@@ -7,5 +7,5 @@ The Route Class represents a given route with information such as airline code, 
 To run this application, run the main method located in the TestRoute Class.
 The bfs method takes in a start city and country and a destination city and country, and returns the flights to get there.
 
-To test this, an input file containing a start city and country and a destination city and country is provided (kumasi-winnipeg.txt)
-After running the main method, an output file is created, and the flights from Kumasi to Winnipeg is written to it.
+To test this, an input file containing a start city and country and a destination city and country is provided (sandane-bangkok.txt)
+After running the main method, an output file is created, and the flights from Sandane to Bangkok is written to it.
