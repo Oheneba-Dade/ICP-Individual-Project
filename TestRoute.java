@@ -102,7 +102,7 @@ public class TestRoute {
             routesReader.close();
 
             // Testing out the application
-            StringBuilder inputFileName = new StringBuilder("kumasi-winnipeg.txt");
+            StringBuilder inputFileName = new StringBuilder("sandane-bangkok.txt");
             BufferedReader inputFileReader =
                     new BufferedReader(new FileReader(String.valueOf(inputFileName)));
             StringBuilder outputFileName =
@@ -117,6 +117,7 @@ public class TestRoute {
             String destination = inputFileReader.readLine();
 
             ArrayList<String> path = bfs(source, destination);
+            System.out.println("Searching for flights...");
             int numberOfFlights = 0;
             if (path == null) {
                 pw.write("Cannot find a series of flights to this location");
@@ -126,6 +127,7 @@ public class TestRoute {
                     numberOfFlights++;
                 }
                 pw.println("Total flights: " + numberOfFlights);
+                System.out.println("Flights found. File created.");
             }
             pw.close();
             inputFileReader.close();
