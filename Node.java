@@ -82,8 +82,7 @@ public class Node {
 		Collections.reverse(airlineCodes);
 		Collections.reverse(stops);
 		for (int i = 0; i < airlineCodes.size() - 1; i++) {
-			String statement = i + 1 + ". " + airlineCodes.get(i + 1) + " from " + airportCodes.get(i) + " to " + airportCodes.get(i + 1) + " " + stops.get(i) + " stops";
-
+			String statement = String.format("%d. %s from %s to %s %d stops",i+1,airlineCodes.get(i+1),airportCodes.get(i),airportCodes.get(i+1),stops.get(i));
 			path.add(statement);
 		}
 		return path;
